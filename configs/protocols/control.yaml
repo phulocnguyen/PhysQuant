@@ -1,0 +1,34 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+
+# Stored in frozen scenarios and recordings; keep this id when renaming files.
+id: spatial_control_v1
+evidence_version: 2
+pretransport_max_horizontal_drift_m: 0.02
+position_tolerance_m: 0.02
+rotation_tolerance_rad: 0.17453292519943295
+clearance_tolerance_m: 0.02
+waypoint_tolerance_m: 0.03
+stable_hold_s: 0.5
+linear_speed_m_s: 0.02
+angular_speed_rad_s: 0.2
+support_tolerance_m: 0.003
+lift_height_m: 0.05
+selection_lift_m: 0.02
+max_distractor_movement_m: 0.005
+gripper_enclosing_radius_m: 0.17
+retreat_m: 0.24
+timeout_s: 30.0
+transport_bottom_clearance_m: 0.15
+transport_start_displacement_m: 0.005
+transport_end_tolerance_m: 0.01
+transport_end_dwell_s: 0.1
+constraint_numeric_epsilon: 1.0e-06
+goal_size_xy_m:
+- 0.24
+- 0.24
+containment_margin_m: 0.005
+rotation_speed_rad_s: 0.6

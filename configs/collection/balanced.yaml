@@ -1,0 +1,24 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+# Starting collection profile; choose task/value diversity explicitly for research datasets.
+task: object_understanding
+case: diameter
+candidate_count: 5
+value: 55
+unit: mm
+gap: 3
+shapes: [cylinder]
+seed: 712
+split: train
+template_split: seen
+render_profile: balanced
+capture_profile: full
+compression: lzf
+isolated_episodes: true
+video: false
+num_episodes: 1
+max_attempts: 1
+output_dir: datasets/native_hdf5/object_understanding/balanced

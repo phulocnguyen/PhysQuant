@@ -1,0 +1,31 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+
+task: target_placement
+case: TP-1A
+seed: 712
+split: diagnostic
+template_split: seen
+render_profile: balanced
+geometry_options:
+- kind: box
+  size_m:
+  - 0.1
+  - 0.045
+  - 0.05
+initial_xy_m:
+- -0.12
+- 0.08
+initial_jitter_xy_m:
+- 0.015
+- 0.015
+initial_yaw_deg:
+- 0
+references: {}
+numerical_goal:
+  position_cm:
+  - 12
+  - 16

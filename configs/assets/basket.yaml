@@ -1,0 +1,37 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+id: plasticbox_tray_aligned
+usd_path: assets/baskets/plasticbox_tray_aligned/object.usda
+source: assets/objects_new/target_object/062_plasticbox/base1/object.usd
+scale_from_source:
+- 2
+- 2
+- 0.7
+outer_size_m:
+- 0.2763
+- 0.2763
+- 0.04920691546052694
+inner_size_xy_m:
+- 0.24
+- 0.24
+bottom_m: 0.012
+slots_xy_m: &id001
+- - 0
+  - -0.06
+- - -0.06
+  - 0.06
+- - 0.06
+  - 0.06
+slots_by_count:
+  1:
+  - - 0
+    - 0
+  2:
+  - - 0
+    - -0.045
+  - - 0
+    - 0.045
+  3: *id001

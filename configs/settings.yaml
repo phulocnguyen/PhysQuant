@@ -1,0 +1,154 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+# Shared settings for all tasks, organized like ExtrinsicDexterity.
+# World XYZ and offsets are meters; quaternion order is XYZW.
+# Wrist offset_rot uses the explicit ROS optical convention below.
+table:
+  size_m: [1.6, 1.0, 0.05]
+  height_m: 0.75
+  leg_width_m: 0.06
+simulation:
+  physics_hz: 120
+  control_steps: 4  # One action every four physics steps: 30 Hz.
+  timeout_s: 8.0  # Unused by pick-and-place (see configs/protocols/pick_place.yaml); kept because shared settings are hashed into scene IDs.
+  settling:
+    min_s: 1.0
+    max_s: 10.0
+    hold_s: 0.5
+    linear_speed_m_s: 0.001
+    angular_speed_rad_s: 0.01
+# Former lift-only criteria; pick-and-place uses configs/protocols/pick_place.yaml. Kept because shared settings are hashed into scene IDs.
+success:
+  lift_height_m: 0.05
+  hold_s: 0.5
+  max_distractor_movement_m: 0.04
+  max_hand_distance_m: 0.16
+  gripper_closed_width_m: 0.075
+objects:
+  # Primary candidates: visible tabletop scale with clearance for Panda fingers.
+  candidate_limits:
+    minimum_extent_m: 0.035
+    minimum_planar_span_m: 0.04
+    maximum_extent_m: 0.18
+    maximum_grasp_width_m: 0.07
+  cylinder_height_m: 0.12  # Primary radius/diameter cylinder tasks only.
+  candidate_layout:
+    x_m: [-0.24, -0.08, 0.08, 0.24]
+    y_m: [0.04, 0.19, 0.34]
+  # Dynamic objects stay at rest until contact wakes them. Requires CPU PhysX;
+  # cameras still render on the GPU. False restores ordinary free settling.
+  start_asleep: true
+  # Distances from the robot base: local +X forward, local +Y left.
+  # The grid follows base_yaw_deg; object dimensions remain in object-local axes.
+  layout:
+    forward_m: [0.43, 0.62]
+    lateral_m: [-0.25, 0.0, 0.25]
+appearance:
+  table_color: [0.12, 0.14, 0.18]
+  roughness: 0.8
+  # All selectable OU/RU/SR objects use this same linear RGB color.
+  # Reference markers and the goal retain their semantic colors.
+  candidate_color: [0.6, 0.18, 0.005]
+  # Former per-object palette; candidates use appearance.candidate_color. Kept because shared settings are hashed into scene IDs.
+  object_colors:
+  # Linear RGB: small secondary channels avoid pastel colors under bright light.
+  - [0.55, 0.012, 0.004]
+  - [0.005, 0.08, 0.5]
+  - [0.008, 0.34, 0.025]
+  - [0.6, 0.28, 0.003]
+  - [0.24, 0.008, 0.5]
+  - [0.003, 0.25, 0.2]
+lighting:
+  dome_intensity: 350.0
+  key_intensity: 650.0
+rendering:
+  mode: path_traced  # Cleaner native-resolution frames; slower than realtime.
+  shadows: false  # Disable cast shadows from objects and the arm in every view.
+  path_tracing_samples: 16
+  antialiasing_mode: TAA  # Native resolution; avoids low-resolution DLSS reconstruction.
+  samples_per_pixel: 16
+cameras:
+  resolution:
+  - 256
+  - 256
+  data_types:
+  - rgb
+  - distance_to_image_plane
+  update_period: 0.05
+  scene:
+    # LIBERO agentview uses MuJoCo's 45-degree vertical FOV.
+    # With square images: focal_length = aperture / (2 * tan(FOV / 2)).
+    focal_length: 25.2949225998
+    horizontal_aperture: 20.955
+    clipping_range:
+    - 0.01
+    - 10.0
+    views:
+      top:
+        # From beyond the far table edge, looking back at the robot: the whole arm,
+        # including its base, and the full tabletop stay in frame during manipulation.
+        position:
+        - 0.0
+        - 1.40
+        - 1.55
+        target:
+        - 0.0
+        - -0.15
+        - 1.00
+      left:
+        position:
+        - -0.8
+        - 0.1
+        - 1.4
+        target:
+        # Aim slightly toward the near objects to retain enlarged tools at the bottom.
+        - -0.08
+        - 0.1
+        - 0.78
+      right:
+        position:
+        - 0.8
+        - 0.1
+        - 1.4
+        target:
+        - 0.08
+        - 0.1
+        - 0.78
+  wrist:
+    # LIBERO's robosuite 1.4.0 Panda eye_in_hand camera: 75-degree FOV.
+    focal_length: 13.6545438439
+    horizontal_aperture: 20.955
+    clipping_range:
+    - 0.01
+    - 10.0
+    body: panda_hand
+    offset_pos:
+    - 0.05
+    - 0.0
+    - 0.0
+    # MuJoCo/OpenGL WXYZ [0, sqrt(.5), sqrt(.5), 0] converted to ROS XYZW.
+    offset_rot:
+    - 0.0
+    - 0.0
+    - 0.7071067812
+    - 0.7071067812
+    convention: ros
+robot:
+  # Table is 1.6 m along X and 1.0 m along Y, centered at the world origin.
+  # Base is centered on the long -Y edge, inset 10 cm, facing inward (+Y).
+  base_position: [0.0, -0.4, 0.75]
+  base_yaw_deg: 90.0
+  tcp_offset:
+  - 0.0
+  - 0.0
+  - 0.1034
+controller:
+  ik_method: dls
+  approach_clearance_m: 0.15
+  lift_distance_m: 0.18
+  position_tolerance_m: 0.01
+  orientation_tolerance_rad: 0.15
+  gripper_velocity_tolerance_m_s: 0.01

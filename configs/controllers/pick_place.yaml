@@ -1,0 +1,14 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+lower_step_m: 0.03
+motion_speed_m_s: 0.35
+motion_acceleration_m_s2: 0.8
+lower_speed_m_s: 0.12
+placement_position_tolerance_m: 0.003
+placement_orientation_tolerance_rad: 0.05
+hand_settle_speed_m_s: 0.015
+settle_before_release_s: 0.2
+settle_after_open_s: 0.2

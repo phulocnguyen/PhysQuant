@@ -1,0 +1,27 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+version: 3
+templates:
+  ou_pick:
+    split: seen
+    text: "Pick up {selection}."
+    legacy_text: "Pick up {selection} and place it in the marked goal zone."
+  ou_grasp:
+    split: seen
+    text: "Grasp and lift {selection}."
+    legacy_text: "Grasp {selection}, then place it in the marked goal zone."
+  ou_transfer:
+    split: seen
+    text: "Lift {selection} off the table."
+    legacy_text: "Pick up and place {selection} in the marked goal zone."
+  ou_move:
+    split: held_out
+    text: "Take hold of {selection} and raise it."
+    legacy_text: "Move {selection} to the marked goal zone by picking it up and placing it there."
+  ou_lift_place:
+    split: held_out
+    text: "Pick {selection} up from the table."
+    legacy_text: "Lift {selection} and set it down in the marked goal zone."

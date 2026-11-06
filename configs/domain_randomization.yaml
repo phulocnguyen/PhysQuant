@@ -1,0 +1,49 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+# Controlled baseline. Position varies; mass, yaw, CoM, light and cameras stay fixed.
+enabled: true
+table:
+  enabled: false
+  options:
+  - name: wood_table
+    color_rgb:
+    - 0.563427
+    - 0.458777
+    - 0.360472
+    source_texture: martin_novak_wood_table.png
+  - name: living_room_wood
+    color_rgb:
+    - 0.07517
+    - 0.036697
+    - 0.023006
+    source_texture: scenes/living_room_table/living_room_table_texture.png
+  - name: coffee_table_marble
+    color_rgb:
+    - 0.535442
+    - 0.522327
+    - 0.49077
+    source_texture: scenes/short_coffee_table/Marble062_COL_4K.png
+camera:
+  enabled: false
+  position_range_m: 0.05
+  fov_range_deg: 5.0
+light:
+  enabled: false
+  intensity_scale_range:
+  - 0.85
+  - 1.15
+target_object:
+  enabled: true
+  position_range_m: 0.025
+  yaw_range_deg: 0.0
+  mass_range_kg:
+  - 0.05
+  - 0.05
+  com_range_m: 0.0
+robot:
+  enabled: false
+  joint_position_range_rad: 0.09
+  joint_velocity_range_rad_s: 0.0

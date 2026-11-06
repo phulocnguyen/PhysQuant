@@ -1,0 +1,50 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+task: constructive_planning
+case: CP-1B
+seed: 712
+split: diagnostic
+template_split: seen
+render_profile: balanced
+problems:
+- objects:
+  - kind: box
+    size_m:
+    - 0.06
+    - 0.04
+    - 0.05
+  - kind: box
+    size_m:
+    - 0.08
+    - 0.04
+    - 0.05
+  - kind: box
+    size_m:
+    - 0.12
+    - 0.04
+    - 0.05
+  numerical_goal:
+    measurement: length
+    target: 20
+- objects:
+  - kind: box
+    size_m:
+    - 0.07
+    - 0.04
+    - 0.05
+  - kind: box
+    size_m:
+    - 0.09
+    - 0.04
+    - 0.05
+  - kind: box
+    size_m:
+    - 0.13
+    - 0.04
+    - 0.05
+  numerical_goal:
+    measurement: length
+    target: 22

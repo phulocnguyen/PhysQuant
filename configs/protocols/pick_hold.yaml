@@ -1,0 +1,17 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+id: pick_hold_v1
+lift_height_m: 0.05
+selection_lift_m: 0.02
+table_clearance_m: 0.02
+hold_position_tolerance_m: 0.005
+hold_orientation_tolerance_rad: 0.1
+stable_hold_s: 0.5
+max_distractor_movement_m: 0.02
+grasp_position_tolerance_m: 0.015
+finger_width_tolerance_m: 0.004
+timeout_s: 15.0
+attempt_wall_timeout_s: 300.0

@@ -1,0 +1,35 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+# Metres. Geometry is authored at these sizes; no hidden USD scale is applied.
+# The query overrides its measured dimension and updates the prompt/annotations.
+limits:
+  minimum_extent_m: 0.025
+  minimum_planar_span_m: 0.03
+  maximum_extent_m: 0.22
+  maximum_grasp_width_m: 0.074
+  minimum_component_extent_m: 0.025
+# Radius changes diameter twice as fast as other linear dimensions.
+# Apply difficulty gaps to diameter-equivalent separation for radius tasks.
+linear_gap_scale: {radius: 0.25, diameter: 0.5, width: 0.5}
+box_defaults:
+  rectangular_bar: [0.14, 0.04, 0.035]
+  rectangular_plate: [0.10, 0.06, 0.03]
+  box: [0.10, 0.055, 0.08]
+round_defaults:
+  radius_m: 0.03
+  height_m: 0.10
+  disk_height_m: 0.03
+  puck_height_m: 0.035
+  # A broader cone keeps the queried volume without a tall, hard-to-grasp apex.
+  volume_cone_radius_m: 0.036
+component:
+  overall_length_m: 0.20
+  handle_width_m: 0.03
+  handle_height_m: 0.03
+  tool_head_width_m: 0.065
+  tool_head_height_m: 0.05
+  paddle_head_width_m: 0.085
+  paddle_head_height_m: 0.03

@@ -1,0 +1,17 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+candidate_count: 3
+unit: cm
+split: diagnostic
+seed: 712
+num_episodes: 1
+max_attempts: 1
+capture_profile: full
+video: true
+task: quantitative_constraint_grounding
+case: threshold
+value: 12
+gap: 1

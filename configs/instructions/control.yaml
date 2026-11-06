@@ -1,0 +1,18 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+
+version: 5
+templates:
+  direct:
+    split: seen
+    text: '{action} {frame}'
+  careful:
+    split: seen
+    text: Carefully, {action_lower} {frame}
+    legacy_text: Using the indicated table frame, {action_lower} {frame}
+  request:
+    split: held_out
+    text: Your task is to {action_lower} {frame}

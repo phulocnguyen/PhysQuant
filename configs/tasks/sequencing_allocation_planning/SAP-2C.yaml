@@ -1,0 +1,72 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+task: sequencing_allocation_planning
+case: SAP-2C
+seed: 712
+split: diagnostic
+template_split: seen
+render_profile: balanced
+problems:
+- objects:
+  - kind: box
+    size_m:
+    - 0.1
+    - 0.035
+    - 0.06
+  - kind: box
+    size_m:
+    - 0.1
+    - 0.055
+    - 0.06
+  - kind: box
+    size_m:
+    - 0.06
+    - 0.035
+    - 0.06
+  - kind: box
+    size_m:
+    - 0.06
+    - 0.055
+    - 0.06
+  numerical_goal:
+    measurement: length
+    conditions:
+    - attribute: length
+      operator: gt
+      value_cm: 8
+    - attribute: width
+      operator: lt
+      value_cm: 4.5
+- objects:
+  - kind: box
+    size_m:
+    - 0.11
+    - 0.035
+    - 0.06
+  - kind: box
+    size_m:
+    - 0.11
+    - 0.055
+    - 0.06
+  - kind: box
+    size_m:
+    - 0.07
+    - 0.035
+    - 0.06
+  - kind: box
+    size_m:
+    - 0.07
+    - 0.055
+    - 0.06
+  numerical_goal:
+    measurement: length
+    conditions:
+    - attribute: length
+      operator: gt
+      value_cm: 9
+    - attribute: width
+      operator: lt
+      value_cm: 4.5

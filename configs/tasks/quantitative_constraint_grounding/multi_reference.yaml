@@ -1,0 +1,20 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+task: quantitative_constraint_grounding
+case: multi_reference
+candidate_count: 3
+value: 10
+unit: cm
+gap: 2
+shapes:
+- box
+split: diagnostic
+seed: 712
+num_episodes: 1
+max_attempts: 1
+capture_profile: full
+video: true
+output_dir: datasets/native_hdf5/quantitative_constraint_grounding/multi_reference

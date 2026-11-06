@@ -1,0 +1,17 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+
+version: 3
+templates:
+  direct:
+    split: seen
+    text: '{action}'
+  careful:
+    split: seen
+    text: Using the numerical measurements, {action_lower}
+  request:
+    split: held_out
+    text: Your task is to {action_lower}

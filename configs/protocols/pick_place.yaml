@@ -1,0 +1,20 @@
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+id: pick_place_v1
+goal_center_xy_m: [0.30, -0.15]
+goal_size_xy_m: [0.24, 0.20]
+containment_margin_m: 0.005
+support_tolerance_m: 0.003
+lift_height_m: 0.05
+selection_lift_m: 0.02
+linear_speed_m_s: 0.02
+angular_speed_rad_s: 0.2
+stable_hold_s: 0.5
+max_distractor_movement_m: 0.02
+gripper_enclosing_radius_m: 0.17
+retreat_m: 0.24
+timeout_s: 20.0
+attempt_wall_timeout_s: 300.0
